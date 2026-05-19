@@ -1,0 +1,334 @@
+<div class="container-fluid px-4 py-4 bg-mokeal">
+  @if (account() !== null) {
+    <div class="d-flex gap-2 mb-4">
+      <button class="btn btn-pill" [class.active]="activeTab === 'hoy'" (click)="setTab('hoy')">Hoy</button>
+      <button class="btn btn-pill" [class.active]="activeTab === 'trabajadores'" (click)="setTab('trabajadores')">Trabajadores</button>
+      <button class="btn btn-pill" [class.active]="activeTab === 'tarifas'" (click)="setTab('tarifas')">Tarifas</button>
+      <button class="btn btn-pill" [class.active]="activeTab === 'facturas'" (click)="setTab('facturas')">Facturas</button>
+    </div>
+
+    @if (activeTab === 'hoy') {
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Servicios hoy</div>
+            <div class="metric-value">7</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Trabajadores activos</div>
+            <div class="metric-value">4</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Ingresos del día</div>
+            <div class="metric-value">€ 620</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">KM Desplazamientos</div>
+            <div class="metric-value">38 km</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-7">
+          <div class="content-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="section-title mb-0">Servicios del día</h5>
+              <a routerLink="/servicio/new" class="btn btn-sm btn-primary">+ Nuevo servicio</a>
+            </div>
+            <div class="service-item">
+              <div class="d-flex align-items-center">
+                <span class="dot dot-madrid"></span>
+                <div>
+                  <div class="fw-bold">C/ Alcalá 45 — Piso</div>
+                  <div class="text-muted small">9:00-11:00 · Ana M.</div>
+                </div>
+              </div>
+              <span class="badge-custom b-confirmado">Confirmado</span>
+            </div>
+            <div class="service-item">
+              <div class="d-flex align-items-center">
+                <span class="dot dot-madrid"></span>
+                <div>
+                  <div class="fw-bold">Oficina Cibeles — 3ª planta</div>
+                  <div class="text-muted small">10:30-14:00 · Carlos R.</div>
+                </div>
+              </div>
+              <span class="badge-custom b-confirmado">Confirmado</span>
+            </div>
+            <div class="service-item">
+              <div class="d-flex align-items-center">
+                <span class="dot dot-fuera"></span>
+                <div>
+                  <div class="fw-bold">Chalet Majadahonda</div>
+                  <div class="text-muted small">9:00-12:00 · Luis P.</div>
+                </div>
+              </div>
+              <span class="badge-custom b-fuera">Fuera Madrid</span>
+            </div>
+            <div class="service-item">
+              <div class="d-flex align-items-center">
+                <span class="dot dot-evento"></span>
+                <div>
+                  <div class="fw-bold">Evento — Salón Real, Pozuelo</div>
+                  <div class="text-muted small">18:00-22:00 · Ana M. + Luis P.</div>
+                </div>
+              </div>
+              <span class="badge-custom b-evento">Evento</span>
+            </div>
+            <div class="mt-3">
+              <a routerLink="/servicio" class="small text-muted">Ver todos los servicios →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="content-card mb-3">
+            <h5 class="section-title">Mapa del día</h5>
+            <div class="map-placeholder"><div class="map-text">Mapa interactivo de servicios</div></div>
+          </div>
+          <div class="content-card">
+            <h5 class="section-title">Acciones rápidas</h5>
+            <div class="d-grid gap-2">
+              <a routerLink="/servicio/new" class="btn btn-action">+ Nuevo servicio</a>
+              <a routerLink="/cliente/new" class="btn btn-action">+ Nuevo cliente</a>
+              <a routerLink="/factura" class="btn btn-action">🧾 Ver facturas pendientes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (activeTab === 'trabajadores') {
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="content-card">
+            <h5 class="section-title">Equipo</h5>
+            <div class="worker-card">
+              <div class="worker-avatar av-a">AM</div>
+              <div>
+                <div class="worker-name">Ana Martínez</div>
+                <div class="worker-meta">2 servicios · 5h</div>
+              </div>
+              <span class="ms-auto badge-custom b-confirmado">Activa</span>
+            </div>
+            <div class="worker-card">
+              <div class="worker-avatar av-b">CR</div>
+              <div>
+                <div class="worker-name">Carlos Ruiz</div>
+                <div class="worker-meta">1 servicio · 3.5h</div>
+              </div>
+              <span class="ms-auto badge-custom b-confirmado">Activo</span>
+            </div>
+            <div class="worker-card">
+              <div class="worker-avatar av-c">LP</div>
+              <div>
+                <div class="worker-name">Luis Pérez</div>
+                <div class="worker-meta">2 servicios · 7h</div>
+              </div>
+              <span class="ms-auto badge-custom b-evento">Evento</span>
+            </div>
+            <div class="worker-card">
+              <div class="worker-avatar av-d">MG</div>
+              <div>
+                <div class="worker-name">Marta García</div>
+                <div class="worker-meta">1 servicio · 2h</div>
+              </div>
+              <span class="ms-auto badge-custom b-confirmado">Activa</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="content-card">
+            <h5 class="section-title">Timeline del día</h5>
+            <div class="d-flex gap-3 mb-3">
+              <div class="timeline-hour">09:00</div>
+              <div class="flex-grow-1">
+                <div class="timeline-block tl-madrid">
+                  <div class="tl-name">Ana — Alcalá 45</div>
+                  <div class="tl-detail">9:00 a 11:00 · Madrid</div>
+                </div>
+                <div class="timeline-block tl-fuera">
+                  <div class="tl-name">Luis — Majadahonda</div>
+                  <div class="tl-detail">9:00 a 12:00 · Fuera</div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-3 mb-3">
+              <div class="timeline-hour">10:30</div>
+              <div class="flex-grow-1">
+                <div class="timeline-block tl-madrid">
+                  <div class="tl-name">Carlos — Oficina Cibeles</div>
+                  <div class="tl-detail">10:30 a 14:00 · Madrid</div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="timeline-hour">18:00</div>
+              <div class="flex-grow-1">
+                <div class="timeline-block tl-evento">
+                  <div class="tl-name">Ana + Luis — Evento Pozuelo</div>
+                  <div class="tl-detail">18:00 a 22:00 · Evento</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (activeTab === 'tarifas') {
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h5 class="fw-semibold mb-0">Tarifas activas</h5>
+          <div class="text-muted small">Precios por zona y tipo de servicio</div>
+        </div>
+        <a routerLink="/tarifa/new" class="btn btn-sm btn-primary">+ Nueva tarifa</a>
+      </div>
+
+      @if (tarifas().length === 0) {
+        <div class="content-card text-center py-5 text-muted">
+          No hay tarifas configuradas.
+          <div class="mt-3"><a routerLink="/tarifa/new" class="btn btn-sm btn-primary">Crear primera tarifa</a></div>
+        </div>
+      } @else {
+        @for (zona of ['MADRID_CAPITAL', 'COMUNIDAD_MADRID', 'FUERA_COMUNIDAD']; track zona) {
+          @if (getTarifasPorZona(zona).length > 0) {
+            <div class="mb-4">
+              <div class="zona-header mb-3" [ngClass]="getZonaClass(zona)"><span class="zona-dot"></span>{{ getZonaLabel(zona) }}</div>
+              <div class="row g-3">
+                @for (tarifa of getTarifasPorZona(zona); track tarifa.id) {
+                  <div class="col-md-4">
+                    <div class="tarifa-card">
+                      <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                          <div class="tarifa-tipo">{{ getTipoLabel(tarifa.tipoServicio) }}</div>
+                          <span class="tarifa-zona-badge" [ngClass]="getZonaBadgeClass(zona)">{{ getZonaLabel(zona) }}</span>
+                        </div>
+                        <span class="badge" [ngClass]="tarifa.activa ? 'bg-success' : 'bg-secondary'">
+                          {{ tarifa.activa ? 'Activa' : 'Inactiva' }}
+                        </span>
+                      </div>
+                      <div class="tarifa-precio-row">
+                        <span class="tarifa-precio-label">1ª hora</span
+                        ><span class="tarifa-precio-val">€ {{ tarifa.precioFirstHora }}</span>
+                      </div>
+                      <div class="tarifa-precio-row">
+                        <span class="tarifa-precio-label">Hora adicional</span
+                        ><span class="tarifa-precio-val">€ {{ tarifa.precioHoraAdicional }}</span>
+                      </div>
+                      <div class="tarifa-precio-row">
+                        <span class="tarifa-precio-label">Mínimo</span><span class="tarifa-precio-val">{{ tarifa.minimoHoras }} h</span>
+                      </div>
+                      @if (tarifa.precioPorKm) {
+                        <div class="tarifa-precio-row">
+                          <span class="tarifa-precio-label">€/km</span><span class="tarifa-precio-val">€ {{ tarifa.precioPorKm }}</span>
+                        </div>
+                      }
+                      <div class="mt-3">
+                        <a [routerLink]="['/tarifa', tarifa.id, 'edit']" class="btn btn-sm btn-outline-secondary w-100">Editar</a>
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        }
+      }
+    }
+
+    @if (activeTab === 'facturas') {
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h5 class="fw-semibold mb-0">Facturas</h5>
+          <div class="text-muted small">Historial y estado de cobro</div>
+        </div>
+        <a routerLink="/factura/new" class="btn btn-sm btn-primary">+ Nueva factura</a>
+      </div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Total facturado</div>
+            <div class="metric-value">€ {{ getTotalFacturado() | number: '1.0-0' }}</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Cobrado</div>
+            <div class="metric-value" style="color: #1d9e75">€ {{ getTotalCobrado() | number: '1.0-0' }}</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Pendiente de cobro</div>
+            <div class="metric-value" style="color: #e24b4a">€ {{ getTotalPendiente() | number: '1.0-0' }}</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-card">
+            <div class="metric-label">Nº facturas</div>
+            <div class="metric-value">{{ facturas().length }}</div>
+          </div>
+        </div>
+      </div>
+
+      @if (facturas().length === 0) {
+        <div class="content-card text-center py-5 text-muted">
+          No hay facturas aún.
+          <div class="mt-3"><a routerLink="/factura/new" class="btn btn-sm btn-primary">Crear primera factura</a></div>
+        </div>
+      } @else {
+        <div class="content-card">
+          <table class="table table-sm table-borderless mb-0">
+            <thead>
+              <tr class="text-muted small text-uppercase">
+                <th>Número</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (factura of facturas(); track factura.id) {
+                <tr class="align-middle">
+                  <td class="fw-semibold">{{ factura.numero }}</td>
+                  <td class="text-muted small">{{ factura.cliente?.id ?? '—' }}</td>
+                  <td class="text-muted small">{{ factura.fechaEmision }}</td>
+                  <td class="fw-semibold">€ {{ factura.total }}</td>
+                  <td>
+                    <span class="badge-custom" [ngClass]="getFacturaBadgeClass(factura.estado)">
+                      {{ getFacturaEstadoLabel(factura.estado) }}
+                    </span>
+                  </td>
+                  <td class="text-end">
+                    <a [routerLink]="['/factura', factura.id, 'view']" class="btn btn-sm btn-outline-secondary me-1">Ver</a>
+                    <a [routerLink]="['/factura', factura.id, 'edit']" class="btn btn-sm btn-outline-secondary">Editar</a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+          <div class="mt-3 text-end">
+            <a routerLink="/factura" class="small text-muted">Ver todas las facturas →</a>
+          </div>
+        </div>
+      }
+    }
+  } @else {
+    <div class="text-center mt-5">
+      <h2 class="mb-2">Mokeal</h2>
+      <p class="text-muted mb-4">Gestión de servicios de limpieza profesional</p>
+      <button class="btn btn-primary" (click)="login()">Iniciar sesión</button>
+    </div>
+  }
+</div>

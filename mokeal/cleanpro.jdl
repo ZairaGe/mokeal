@@ -1,0 +1,103 @@
+// ===================================================
+// CLEANPRO — Modelo de entidades
+// ===================================================
+
+enum TipoServicio {
+    HOGAR, OFICINA, CHALET, EVENTO, POST_OBRA, POST_MUDANZA
+}
+
+enum ZonaTarifa {
+    MADRID_CAPITAL, COMUNIDAD_MADRID, FUERA_COMUNIDAD
+}
+
+enum Frecuencia {
+    PUNTUAL, SEMANAL, QUINCENAL, MENSUAL
+}
+
+enum EstadoServicio {
+    PENDIENTE, CONFIRMADO, EN_CURSO, COMPLETADO, CANCELADO
+}
+
+enum EstadoFactura {
+    BORRADOR, EMITIDA, PAGADA, CANCELADA
+}
+
+// ───────────────────────────────────────────────────
+
+entity Cliente {
+    nombre       String required maxlength(100)
+    telefono     String required maxlength(20)
+    email        String maxlength(100)
+    nifCif       String maxlength(20)
+    direccion    String maxlength(200)
+    municipio    String maxlength(100)
+    codigoPostal String maxlength(10)
+    notas        String maxlength(500)
+    activo       Boolean required
+}
+
+entity Trabajador {
+    nombre   String required maxlength(100)
+    telefono String required maxlength(20)
+    email    String maxlength(100)
+    activo   Boolean required
+    notas    String maxlength(500)
+}
+
+entity Tarifa {
+    zona                ZonaTarifa required
+    tipoServicio        TipoServicio required
+    precioFirstHora     BigDecimal required
+    precioHoraAdicional BigDecimal required
+    minimoHoras         Integer required
+    precioPorKm         BigDecimal
+    activa              Boolean required
+}
+
+entity Servicio {
+    tipoServicio     TipoServicio required
+    zona             ZonaTarifa required
+    frecuencia       Frecuencia required
+    fecha            LocalDate required
+    horaInicio       String required maxlength(5)
+    duracionHoras    BigDecimal required
+    numTrabajadores  Integer required
+    estado           EstadoServicio required
+    direccion        String maxlength(200)
+    municipio        String maxlength(100)
+    notas            String maxlength(1000)
+    precioTotal      BigDecimal
+    descuento        BigDecimal
+}
+
+entity Factura {
+    numero           String required maxlength(30)
+    fechaEmision     LocalDate required
+    fechaVencimiento LocalDate
+    baseImponible    BigDecimal required
+    iva              BigDecimal required
+    total            BigDecimal required
+    estado           EstadoFactura required
+    notas            String maxlength(500)
+}
+
+// ───────────────────────────────────────────────────
+
+relationship ManyToOne {
+    Servicio{cliente required} to Cliente
+    Servicio{tarifa}            to Tarifa
+    Factura{servicio required}  to Servicio
+    Factura{cliente required}   to Cliente
+}
+
+relationship ManyToMany {
+    Servicio{trabajadores} to Trabajador{servicios}
+}
+
+// ───────────────────────────────────────────────────
+
+paginate Servicio, Factura with pagination
+paginate Cliente, Trabajador with infinite-scroll
+dto * with mapstruct
+service * with serviceImpl
+filter Servicio, Cliente, Factura, Trabajador
