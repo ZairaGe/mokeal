@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "com.mokeal.mokeal.config.ApplicationProperties",
+      "sourceType": "com.mokeal.mokeal.config.ApplicationProperties"
+    },
+    {
+      "name": "application.liquibase",
+      "type": "com.mokeal.mokeal.config.ApplicationProperties$Liquibase",
+      "sourceType": "com.mokeal.mokeal.config.ApplicationProperties",
+      "sourceMethod": "getLiquibase()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.liquibase.async-start",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.mokeal.mokeal.config.ApplicationProperties$Liquibase",
+      "defaultValue": true
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}
