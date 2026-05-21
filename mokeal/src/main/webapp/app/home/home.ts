@@ -33,6 +33,8 @@ export default class HomeComponent implements OnInit, AfterViewInit {
   private router = inject(Router);
   private map!: L.Map;
 
+  constructor(private servicioService: ServicioService) {}
+
   private initMap(): void {
     this.map = L.map('map').setView([40.4167, -3.7037], 13);
 
@@ -40,7 +42,6 @@ export default class HomeComponent implements OnInit, AfterViewInit {
       attribution: '© OpenStreetMap contributors',
     }).addTo(this.map);
 
-    // --- MUEVE EL CÁLCULO AQUÍ ---
     const puntoA = L.latLng(40.4167, -3.7037);
     const puntoB = L.latLng(40.4233, -3.6821);
 
@@ -56,11 +57,10 @@ export default class HomeComponent implements OnInit, AfterViewInit {
     });
     L.Marker.prototype.options.icon = iconDefault;
 
-    // Sustituye los L.marker por esto:
     L.circleMarker([40.4167, -3.7037], {
-      radius: 10, // Tamaño del punto
-      fillColor: '#ff7800', // Color de relleno
-      color: '#000', // Color del borde
+      radius: 10,
+      fillColor: '#ff7800',
+      color: '#000',
       weight: 1,
       opacity: 1,
       fillOpacity: 0.8,
@@ -70,15 +70,12 @@ export default class HomeComponent implements OnInit, AfterViewInit {
 
     this.map = L.map('map').setView([40.4167, -3.7037], 13);
 
-    // Nota: Asegúrate de usar comillas invertidas ` `
     console.log(`La distancia es de ${(distanciaEnMetros / 1000).toFixed(2)} km`);
 
-    // Añadir marcadores para visualizarlo
     L.marker(puntoA).addTo(this.map).bindPopup('Punto A');
     L.marker(puntoB).addTo(this.map).bindPopup('Punto B');
   }
 
-  // Suponiendo que recibes una lista de servicios desde tu servicio de Angular
   dibujarServiciosEnMapa(servicios: IServicio[]): void {
     servicios.forEach(s => {
       if (s.latitud && s.longitud) {
@@ -91,25 +88,17 @@ export default class HomeComponent implements OnInit, AfterViewInit {
     this.initMap();
   }
 
-  constructor(private servicioService: ServicioService) {}
-
   ngOnInit(): void {
     this.accountService.identity().subscribe(account => {
       this.account.set(account);
       if (account) {
-        // 1. Traemos tarifas
         this.tarifaService.query().subscribe(res => this.tarifas.set(res.body ?? []));
-
-        // 2. Traemos facturas
         this.facturaService.query().subscribe(res => this.facturas.set(res.body ?? []));
 
-        // 3. Traemos SERVICIOS para el mapa
         this.servicioService.query().subscribe(res => {
-          const listaServicios = res.body ?? [];
-          this.servicios.set(listaServicios); // Guardamos en la señal
-
-          // Dibujamos los puntos en el mapa
-          this.actualizarPuntosMapa(listaServicios);
+          const lista = res.body ?? [];
+          this.servicios.set(lista);
+          this.actualizarPuntosMapa(lista);
         });
       }
     });
@@ -119,17 +108,20 @@ export default class HomeComponent implements OnInit, AfterViewInit {
     if (!this.map) return;
 
     servicios.forEach(s => {
-      // Verificamos que el servicio tenga coordenadas (latitud y longitud)
       if (s.latitud && s.longitud) {
         L.circleMarker([s.latitud, s.longitud], {
           radius: 8,
-          fillColor: '#ff7800', // El naranja que ya te funciona
+          fillColor: '#ff7800',
           color: '#000',
           weight: 1,
           fillOpacity: 0.8,
-        })
-          .addTo(this.map!)
-          .bindPopup(`<b>${s.tipoServicio}</b><br>${s.direccion}`); // Usamos tipoServicio para evitar error de 'nombre'
+        }).addTo(this.map!).bindPopup(`
+            <div style="font-family: sans-serif;">
+              <strong style="color: #ff7800;">${this.getTipoLabel(s.tipoServicio)}</strong><br>
+              <span>📍 ${s.direccion}</span><br>
+              <small>⏰ ${s.horaInicio ?? ''}</small>
+            </div>
+          `);
       }
     });
   }
@@ -156,7 +148,6 @@ export default class HomeComponent implements OnInit, AfterViewInit {
       const punto1 = L.latLng(servicioA.latitud, servicioA.longitud);
       const punto2 = L.latLng(servicioB.latitud, servicioB.longitud);
 
-      // Retorna la distancia en kilómetros
       return punto1.distanceTo(punto2) / 1000;
     }
     return 0;
@@ -236,5 +227,14 @@ export default class HomeComponent implements OnInit, AfterViewInit {
       CANCELADA: 'b-pendiente',
     };
     return estado ? (classes[estado] ?? '') : '';
+  }
+  updateMapPoints(): void {
+    this.servicios().forEach(servicio => {
+      if (servicio.latitud && servicio.longitud) {
+        L.marker([servicio.latitud, servicio.longitud])
+          .addTo(this.map)
+          .bindPopup(`<b>${servicio.direccion}</b><br>${servicio.tipoServicio}`);
+      }
+    });
   }
 }

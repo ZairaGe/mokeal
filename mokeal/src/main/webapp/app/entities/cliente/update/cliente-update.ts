@@ -27,6 +27,7 @@ export class ClienteUpdate implements OnInit {
   protected clienteFormService = inject(ClienteFormService);
   protected activatedRoute = inject(ActivatedRoute);
 
+  isModal = false;
   // eslint-disable-next-line @typescript-eslint/member-ordering
   editForm: ClienteFormGroup = this.clienteFormService.createClienteFormGroup();
 
@@ -36,6 +37,17 @@ export class ClienteUpdate implements OnInit {
       if (cliente) {
         this.updateForm(cliente);
       }
+    });
+  }
+  saveFromModal(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (this.editForm.invalid) {
+        this.editForm.markAllAsTouched();
+        reject('Formulario inválido');
+        return;
+      }
+      this.save();
+      resolve();
     });
   }
 
