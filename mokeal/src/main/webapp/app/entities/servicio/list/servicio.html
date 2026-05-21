@@ -39,7 +39,23 @@
 
             <!-- Dirección y tipo -->
             <div class="servicio-dir flex-grow-1">
-              <div class="fw-semibold">{{ servicio.direccion ?? 'Sin dirección' }}</div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="fw-semibold">{{ servicio.direccion ?? 'Sin dirección' }}</span>
+
+                <!-- 👇 ENLACE DIRECTO A GOOGLE MAPS 👇 -->
+                @if (servicio.direccion) {
+                  <a
+                    [href]="getMapsUrl(servicio.direccion)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary small d-inline-flex align-items-center"
+                    title="Ver en Google Maps"
+                    style="text-decoration: none; cursor: pointer"
+                  >
+                    🗺️
+                  </a>
+                }
+              </div>
               <div class="text-muted small">
                 {{ servicio.municipio ?? '' }}
                 @if (servicio.municipio) {

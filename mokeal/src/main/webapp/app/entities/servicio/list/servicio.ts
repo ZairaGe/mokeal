@@ -210,4 +210,13 @@ export class Servicio implements OnInit {
     };
     return zona ? (classes[zona] ?? '') : '';
   }
+
+  getMapsUrl(direccion: string | null | undefined): string {
+    if (!direccion || direccion.trim() === '') {
+      return '#';
+    }
+    // Aseguramos la provincia para que Google Maps sea ultrapreciso al buscar en Madrid
+    const direccionCompleta = `${direccion}, Madrid, Spain`;
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(direccionCompleta)}`;
+  }
 }

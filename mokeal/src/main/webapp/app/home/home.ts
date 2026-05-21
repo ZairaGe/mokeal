@@ -237,4 +237,13 @@ export default class HomeComponent implements OnInit, AfterViewInit {
     };
     return estado ? (classes[estado] ?? '') : '';
   }
+  updateMapPoints(): void {
+    this.servicios().forEach(servicio => {
+      if (servicio.latitud && servicio.longitud) {
+        L.marker([servicio.latitud, servicio.longitud])
+          .addTo(this.map)
+          .bindPopup(`<b>${servicio.direccion}</b><br>${servicio.tipoServicio}`);
+      }
+    });
+  }
 }
