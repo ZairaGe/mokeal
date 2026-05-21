@@ -1,0 +1,229 @@
+// ===== MOKEAL MODAL SYSTEM =====
+
+:host {
+  display: block;
+}
+
+.mokeal-modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+// ── Header ──────────────────────────────────
+.modal-header-mk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #f0f0ec;
+  flex-shrink: 0;
+}
+
+.modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-icon {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  background: #f5f5f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-title-mk {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+}
+
+.modal-subtitle {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #888;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.12s,
+    color 0.12s;
+  flex-shrink: 0;
+
+  &:hover {
+    background: #f5f5f0;
+    color: #333;
+  }
+}
+
+// ── Body ────────────────────────────────────
+.modal-body-mk {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+// ── Footer ──────────────────────────────────
+.modal-footer-mk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid #f0f0ec;
+  background: #fafaf8;
+  border-radius: 0 0 12px 12px;
+  flex-shrink: 0;
+}
+
+.footer-left {
+  display: flex;
+  gap: 8px;
+}
+.footer-right {
+  display: flex;
+  gap: 8px;
+}
+
+// ── Botones ─────────────────────────────────
+.btn-mk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.12s;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-mk-primary {
+  background: #185fa5;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: #0c447c;
+  }
+}
+
+.btn-mk-secondary {
+  background: transparent;
+  border: 1px solid #d0d0c8;
+  color: #444;
+
+  &:hover:not(:disabled) {
+    background: #f0f0ec;
+  }
+}
+
+.btn-mk-danger {
+  background: transparent;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+
+  &:hover:not(:disabled) {
+    background: #fef2f2;
+    border-color: #ef4444;
+  }
+}
+
+.btn-mk-danger-confirm {
+  background: #ef4444;
+  color: white;
+  animation: pulse-danger 0.5s ease;
+
+  &:hover:not(:disabled) {
+    background: #dc2626;
+  }
+}
+
+@keyframes pulse-danger {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// ── Campos del formulario (para los hijos) ──
+// Estos estilos se usan en los componentes que
+// se renderizan dentro del modal-body-mk
+
+.form-section {
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0ec;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+
+  &.col-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &.col-1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+}
+
+.field-required::after {
+  content: ' *';
+  color: #ef4444;
+}

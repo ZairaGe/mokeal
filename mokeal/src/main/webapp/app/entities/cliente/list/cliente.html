@@ -8,7 +8,7 @@
       <button class="btn btn-sm btn-outline-secondary" (click)="load()" [disabled]="isLoading()">
         <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
       </button>
-      <a class="btn btn-sm btn-primary" [routerLink]="['/cliente/new']"> <fa-icon icon="plus" /> Nuevo cliente </a>
+      <a class="btn btn-sm btn-primary" (click)="openNuevoCliente()"> <fa-icon icon="plus" /> Nuevo cliente </a>
     </div>
   </div>
 
@@ -68,8 +68,8 @@
             }
 
             <div class="d-flex gap-2 mt-3">
-              <a [routerLink]="['/cliente', cliente.id, 'view']" class="btn btn-sm btn-outline-secondary flex-grow-1">Ver ficha</a>
-              <a [routerLink]="['/cliente', cliente.id, 'edit']" class="btn btn-sm btn-outline-secondary">Editar</a>
+              <button (click)="openVerCliente(cliente)" class="btn btn-sm btn-outline-secondary flex-grow-1">Ver ficha</button>
+              <button (click)="openEditarCliente(cliente)" class="btn btn-sm btn-outline-secondary">Editar</button>
               <button (click)="delete(cliente)" class="btn btn-sm btn-outline-danger">
                 <fa-icon icon="times" />
               </button>

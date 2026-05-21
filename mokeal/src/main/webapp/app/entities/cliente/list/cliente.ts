@@ -2,7 +2,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, WritableSignal, computed, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Data, ParamMap, Router, RouterLink } from '@angular/router';
-
+import { ModalService, ModalConfig } from 'app/shared/modal/modal.service';
+import { ClienteUpdate } from '../update/cliente-update';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
 import { TranslateModule } from '@ngx-translate/core';
@@ -57,7 +58,9 @@ export class Cliente implements OnInit {
   protected readonly activatedRoute = inject(ActivatedRoute);
   protected readonly sortService = inject(SortService);
   protected parseLinks = inject(ParseLinks);
-  protected modalService = inject(NgbModal);
+  private modalService = inject(ModalService);
+  private mokealModalService = inject(ModalService);
+  private ngbModalService = inject(NgbModal);
 
   constructor() {
     effect(() => {
@@ -83,6 +86,49 @@ export class Cliente implements OnInit {
       .subscribe();
   }
 
+  openNuevoCliente(): void {
+    const config: ModalConfig = {
+      title: 'Cliente',
+      icon: '👤',
+      subtitle: 'Datos de contacto y dirección',
+      mode: 'create',
+      showDelete: false,
+      onSave: async () => {
+        this.load();
+      },
+    };
+    this.mokealModalService.open(ClienteUpdate, config);
+  }
+
+  openVerCliente(cliente: ICliente): void {
+    const config: ModalConfig = {
+      title: cliente.nombre ?? 'Cliente',
+      icon: '👤',
+      subtitle: cliente.municipio ?? '',
+      mode: 'view',
+      showDelete: false,
+    };
+    this.mokealModalService.open(ClienteUpdate, config);
+  }
+
+  openEditarCliente(cliente: ICliente): void {
+    const config: ModalConfig = {
+      title: 'Cliente',
+      icon: '👤',
+      subtitle: cliente.nombre ?? '',
+      mode: 'edit',
+      showDelete: true,
+      data: { isModal: true, clienteId: cliente.id },
+      onSave: async () => {
+        this.load();
+      },
+      onDelete: async () => {
+        this.delete(cliente);
+      },
+    };
+    this.mokealModalService.open(ClienteUpdate, config);
+  }
+
   reset(): void {
     this.clientes.set([]);
   }
@@ -92,7 +138,7 @@ export class Cliente implements OnInit {
   }
 
   delete(cliente: ICliente): void {
-    const modalRef = this.modalService.open(ClienteDeleteDialog, { size: 'lg', backdrop: 'static' });
+    const modalRef = this.ngbModalService.open(ClienteDeleteDialog, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.cliente = cliente;
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed
