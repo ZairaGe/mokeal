@@ -1,204 +1,176 @@
-.mokeal-footer {
-    background-color: #2d3e50;
-    color: white;
-    padding: 2.5rem 0 0 0;
-    font-family: 'Inter', sans-serif;
+// ─── Variables (compartidas con el resto de secciones) ───────────────────────
+$color-primary:    #2563eb;
+$color-bg-footer:  #ede8e2;
+$color-bg-bottom:  #e4dfd8;
+$color-text:       #111827;
+$color-text-muted: #6b7280;
+$color-border:     #d8d3cc;
+$color-white:      #ffffff;
 
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 15px;
+$font-family:      'Inter', 'Segoe UI', Arial, sans-serif;
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+.footer {
+  font-family: $font-family;
+  background: $color-bg-footer;
+  border-top: 1px solid $color-border;
+
+  // ── Main area ─────────────────────────────────────────────────────────────
+  &__main {
+    display: grid;
+    // Ajustamos a 4 columnas: la primera más ancha y las otras tres iguales
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+    gap: 32px;
+    padding: 32px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // ── Brand column ──────────────────────────────────────────────────────────
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__logo-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__brand-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  &__tagline {
+    font-size: 13px;
+    line-height: 1.65;
+    color: $color-text-muted;
+    margin: 0;
+    max-width: 320px;
+  }
+
+  // ── Nav columns ───────────────────────────────────────────────────────────
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__col-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-text;
+    margin: 0 0 12px;
+    letter-spacing: -0.05em;
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    li,
+    li a {
+      font-size: 13px;
+      color: $color-text-muted;
+      text-decoration: none;
+      transition: color 0.15s ease;
     }
 
-    .logo-icon {
-        width: 44px;
-        height: 44px;
-        
-        border-radius: 10px;
-        overflow: hidden;
-        display: flex;
-        flex-shrink: 0;
+    li a:hover {
+      color: $color-primary;
     }
 
-
-    .logo-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    // Plain list (no hover needed for contact info)
+    &--plain li {
+      cursor: default;
     }
+  }
 
-    .brand-name {
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
+  // ── Bottom bar ────────────────────────────────────────────────────────────
+  &__bottom {
+    background: $color-bg-bottom;
+    border-top: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 48px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__copy {
+    font-size: 12px;
+    color: $color-text-muted;
+  }
+
+  &__legal {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    a {
+      font-size: 12px;
+      color: $color-text-muted;
+      text-decoration: none;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: $color-text;
+      }
     }
-
-    .footer-container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr;
-        gap: 2rem;
-        padding: 0 2rem 2.5rem 2rem;
-    }
-
-    .footer-column {
-        h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            color: white;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-
-            li {
-                margin-bottom: 0.5rem;
-                font-size: 0.85rem;
-                opacity: 0.8;
-
-                a {
-                    color: white;
-                    text-decoration: none;
-                    transition: opacity 0.2s;
-
-                    &:hover {
-                        opacity: 1;
-                    }
-                }
-            }
-        }
-    }
-
-    .brand-info {
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-
-            .logo-box {
-                background: white;
-                color: #2d3e50;
-                width: 32px;
-                height: 32px;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1rem;
-            }
-        }
-
-        .footer-description {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            opacity: 0.8;
-            max-width: 300px;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-
-            .social-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 0.8rem;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                text-decoration: none;
-                transition: all 0.3s;
-
-                &:hover {
-                    background: rgba(255, 255, 255, 0.1);
-                    border-color: white;
-                }
-            }
-        }
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.2rem 0;
-        font-size: 0.75rem;
-        opacity: 0.7;
-
-        .bottom-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-        }
-
-        .legal-links {
-            display: flex;
-            gap: 1rem;
-
-            a {
-                color: white;
-                text-decoration: none;
-                opacity: 0.7;
-                transition: opacity 0.2s;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        .separator {
-            opacity: 0.3;
-            font-size: 0.8rem;
-        }
-
-        .admin-link {
-            font-weight: 500;
-            // Opcional: puedes hacerlo un pelín más oscuro para que sea "secreto"
-            color: rgba(255, 255, 255, 0.6);
-
-            &:hover {
-                color: white;
-            }
-        }
-    }
+  }
 }
 
 
-// Responsive
+// ─── Responsive ───────────────────────────────────────────────────────────────
 @media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr !important;
-        gap: 3rem !important;
-        text-align: center;
+  .footer {
+    &__main {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 48px 24px 40px;
     }
 
-    .brand-info .footer-description {
-        margin: 0 auto 2rem auto;
+    &__brand {
+      grid-column: 1 / -1;
     }
 
-    .social-links {
-        justify-content: center;
+    &__bottom {
+      padding: 16px 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
+  }
+}
 
-    .bottom-container {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+@media (max-width: 480px) {
+  .footer {
+    &__main {
+      grid-template-columns: 1fr 1fr;
     }
+  }
 }

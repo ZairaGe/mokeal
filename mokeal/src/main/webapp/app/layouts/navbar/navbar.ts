@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, HostListener, OnInit, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -88,5 +88,11 @@ private accountService = inject(AccountService);
     this.collapseNavbar();
     this.loginService.logout();
     this.router.navigate(['']);
+  }
+  isScrolled = false;
+
+    @HostListener('window:scroll')
+  onScroll(): void {
+    this.isScrolled = window.scrollY > 10;
   }
 }

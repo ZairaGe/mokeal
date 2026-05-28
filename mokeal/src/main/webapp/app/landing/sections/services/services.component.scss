@@ -1,0 +1,138 @@
+// ─── Variables (comparte las mismas del hero) ─────────────────────────────────
+$color-primary:     #2563eb;
+$color-bg:          #f5f0eb;
+$color-text:        #111827;
+$color-text-muted:  #6b7280;
+$color-border:      #e5e7eb;
+$color-white:       #ffffff;
+$color-icon-bg:     #dbeafe;
+
+$font-family:       'Inter', 'Segoe UI', Arial, sans-serif;
+$radius-md:         14px;
+$radius-lg:         18px;
+
+// ─── Services Section ─────────────────────────────────────────────────────────
+
+
+.services {
+  background: $color-bg;
+  padding: 80px 48px 96px;
+  font-family: $font-family;
+
+  // ── Header ────────────────────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  &__title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(32px, 3.5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: $color-text;
+    margin: 0 0 12px;
+    line-height: 1.1;
+  }
+
+  &__subtitle {
+    font-size: 15.5px;
+    color: $color-text-muted;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  // ── Grid ──────────────────────────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// ─── Service Card ─────────────────────────────────────────────────────────────
+.service-card {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  // ── Icon ──────────────────────────────────────────────────────────────────
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: $color-icon-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-primary;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+  }
+
+  // ── Title ─────────────────────────────────────────────────────────────────
+  &__title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 17px;
+    font-weight: 700;
+    color: $color-text;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+
+  // ── Description ───────────────────────────────────────────────────────────
+  &__description {
+    font-size: 14px;
+    line-height: 1.65;
+    color: $color-text-muted;
+    margin: 0 0 20px;
+    flex: 1;
+  }
+
+  // ── Price / CTA ───────────────────────────────────────────────────────────
+  &__price {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-primary;
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-block;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1024px) {
+  .services {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .services {
+    padding: 56px 24px 72px;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

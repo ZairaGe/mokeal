@@ -1,47 +1,56 @@
-<footer class="mokeal-footer">
-  <div class="footer-container">
-    <div class="footer-column brand-info">
-  <div class="logo-container"> <div class="logo-icon">
-      <img src="./content/images/mokeal.jpg" alt="Mokeal" />
-    </div>
-    <span class="brand-name">Mokeal</span>
-  </div>
-      <p class="footer-description">
-        Servicios profesionales de limpieza en Madrid para hogares, oficinas, eventos y post-obra. 
-        Calidad, confianza y resultados garantizados.
-      </p>
-      
-    </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__main">
 
-    <div class="footer-column">
-      <h4>Servicios</h4>
-      <ul>
-        <li><a href="#">Hogar</a></li>
-        <li><a href="#">Oficinas</a></li>
-        <li><a href="#">Eventos</a></li>
-        <li><a href="#">Post-obra</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column">
-      <h4>Contacto</h4>
-      <ul class="contact-list">
-        <li>Madrid, España</li>
-        <li>+34 600 123 456</li>
-        <li>hola&#64;mokeal.es</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="bottom-container">
-      <p>© 2026 Mokeal. Todos los derechos reservados.</p>
-      <div class="legal-links">
-        <a href="#">Aviso legal</a>
-        <a href="#">Privacidad</a>
-        <span class="separator">|</span>
-        <a (click)="login()" class="admin-link" style="cursor: pointer;">Acceder</a>
+    <!-- Brand -->
+    <div class="footer__brand">
+      <div class="footer__logo-wrap">
+        <img src="./content/images/logo.png" alt="Mokeal logo" />
       </div>
+     <span class="footer__brand-name">Mokeal</span>
+      <p class="footer__tagline">
+        Servicios de limpieza profesional en Madrid. Calidad y confianza en cada rincón.
+      </p>
     </div>
+
+    <div class="footer__col">
+      <h4 class="footer__col-title">Compañía</h4>
+      <ul class="footer__links">
+        <li><a href="#nuestra-historia">Sobre nosotros</a></li>
+        <li><a href="#servicios">Por qué elegirnos</a></li>
+      </ul>
+    </div>
+
+    <!-- Servicios -->
+    <div class="footer__col">
+      <h4 class="footer__col-title">Servicios</h4>
+      <ul class="footer__links">
+        <li><a href="#servicios">Hogar</a></li>
+        <li><a href="#servicios">Oficinas</a></li>
+        <li><a href="#servicios">Eventos</a></li>
+        <li><a href="#servicios">Post-obra</a></li>
+      </ul>
+    </div>
+
+    <!-- Contacto -->
+    <div class="footer__col">
+      <h4 class="footer__col-title">Contacto</h4>
+      <ul class="footer__links footer__links--plain">
+        <li>Madrid, España</li>
+        <li>hola&#64;mokeal.es</li>
+        <li>+34 600 000 000</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer__bottom">
+    <span class="footer__copy">© 2026 Mokeal. Todos los derechos reservados.</span>
+    <!-- <nav class="footer__legal">
+      <a href="#">Aviso legal</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Cookies</a>
+    </nav>-->
   </div>
 </footer>
