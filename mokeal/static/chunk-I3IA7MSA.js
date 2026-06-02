@@ -1,2 +1,0 @@
-import{Cb as n,Na as o,Yb as i,db as a}from"./chunk-T6YFHVDB.js";import"./chunk-C6Q5SG76.js";var t=class s{static{this.\u0275fac=function(e){return new(e||s)}}static{this.\u0275cmp=a({type:s,selectors:[["jhi-docs"]],decls:2,vars:0,consts:[["src",o`swagger-ui/index.html`,"width","100%","height","900","seamless","","target","_top","title","Swagger UI","data-cy","swagger-frame",1,"border-0"]],template:function(e,c){e&1&&(n(0,"iframe",0),i(1,`
-`))},styles:["iframe[_ngcontent-%COMP%]{background:#fff}"]})}};export{t as default};
