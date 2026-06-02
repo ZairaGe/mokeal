@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import NavbarComponent from 'app/layouts/navbar/navbar';  
 
@@ -9,4 +9,10 @@ import NavbarComponent from 'app/layouts/navbar/navbar';
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
-export default class AboutComponent {}
+export default class AboutComponent implements OnInit { 
+
+  ngOnInit(): void {
+
+    window.scrollTo(0, 0);
+  }
+}
