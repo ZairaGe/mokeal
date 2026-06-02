@@ -110,4 +110,10 @@ export default class Navbar implements OnInit {
       this.router.navigate(['/'], { fragment: id });
     }
   }
+  isMenuOpen = false;
+
+  closeMenuAndScroll(sectionId: string) {
+    this.isMenuOpen = false; // Cierra el menú
+    this.scrollToSection(sectionId); // Hace el scroll
+  }
 }
