@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="es" dir="ltr" data-beasties-container>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>mokeal</title>
+    <meta name="description" content="Description for mokeal">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <base href="/mokeal/">
+    <link rel="icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.webapp">
+    <link rel="stylesheet" href="content/css/loading.css">
+    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
+  <style>:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-black:#000;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#0d6efd;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-primary-rgb:13, 110, 253;--bs-secondary-rgb:108, 117, 125;--bs-success-rgb:25, 135, 84;--bs-info-rgb:13, 202, 240;--bs-warning-rgb:255, 193, 7;--bs-danger-rgb:220, 53, 69;--bs-light-rgb:248, 249, 250;--bs-dark-rgb:33, 37, 41;--bs-primary-text-emphasis:rgb(5.2, 44, 101.2);--bs-secondary-text-emphasis:rgb(43.2, 46.8, 50);--bs-success-text-emphasis:rgb(10, 54, 33.6);--bs-info-text-emphasis:rgb(5.2, 80.8, 96);--bs-warning-text-emphasis:rgb(102, 77.2, 2.8);--bs-danger-text-emphasis:rgb(88, 21.2, 27.6);--bs-light-text-emphasis:#495057;--bs-dark-text-emphasis:#495057;--bs-primary-bg-subtle:rgb(206.6, 226, 254.6);--bs-secondary-bg-subtle:rgb(225.6, 227.4, 229);--bs-success-bg-subtle:rgb(209, 231, 220.8);--bs-info-bg-subtle:rgb(206.6, 244.4, 252);--bs-warning-bg-subtle:rgb(255, 242.6, 205.4);--bs-danger-bg-subtle:rgb(248, 214.6, 217.8);--bs-light-bg-subtle:rgb(251.5, 252, 252.5);--bs-dark-bg-subtle:#ced4da;--bs-primary-border-subtle:rgb(158.2, 197, 254.2);--bs-secondary-border-subtle:rgb(196.2, 199.8, 203);--bs-success-border-subtle:rgb(163, 207, 186.6);--bs-info-border-subtle:rgb(158.2, 233.8, 249);--bs-warning-border-subtle:rgb(255, 230.2, 155.8);--bs-danger-border-subtle:rgb(241, 174.2, 180.6);--bs-light-border-subtle:#e9ecef;--bs-dark-border-subtle:#adb5bd;--bs-white-rgb:255, 255, 255;--bs-black-rgb:0, 0, 0;--bs-font-sans-serif:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--bs-font-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--bs-gradient:linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-color-rgb:33, 37, 41;--bs-body-bg:#ffffff;--bs-body-bg-rgb:255, 255, 255;--bs-emphasis-color:#000;--bs-emphasis-color-rgb:0, 0, 0;--bs-secondary-color:rgba(33, 37, 41, .75);--bs-secondary-color-rgb:33, 37, 41;--bs-secondary-bg:#e9ecef;--bs-secondary-bg-rgb:233, 236, 239;--bs-tertiary-color:rgba(33, 37, 41, .5);--bs-tertiary-color-rgb:33, 37, 41;--bs-tertiary-bg:#f8f9fa;--bs-tertiary-bg-rgb:248, 249, 250;--bs-heading-color:inherit;--bs-link-color:#0d6efd;--bs-link-color-rgb:13, 110, 253;--bs-link-decoration:underline;--bs-link-hover-color:rgb(10.4, 88, 202.4);--bs-link-hover-color-rgb:10, 88, 202;--bs-code-color:#d63384;--bs-highlight-color:#212529;--bs-highlight-bg:rgb(255, 242.6, 205.4);--bs-border-width:1px;--bs-border-style:solid;--bs-border-color:#dee2e6;--bs-border-color-translucent:rgba(0, 0, 0, .175);--bs-border-radius:.15rem;--bs-border-radius-sm:.1rem;--bs-border-radius-lg:.125rem;--bs-border-radius-xl:1rem;--bs-border-radius-xxl:2rem;--bs-border-radius-2xl:var(--bs-border-radius-xxl);--bs-border-radius-pill:50rem;--bs-box-shadow:0 .5rem 1rem rgba(0, 0, 0, .15);--bs-box-shadow-sm:0 .125rem .25rem rgba(0, 0, 0, .075);--bs-box-shadow-lg:0 1rem 3rem rgba(0, 0, 0, .175);--bs-box-shadow-inset:inset 0 1px 2px rgba(0, 0, 0, .075);--bs-focus-ring-width:.25rem;--bs-focus-ring-opacity:.25;--bs-focus-ring-color:rgba(13, 110, 253, .25);--bs-form-valid-color:#198754;--bs-form-valid-border-color:#198754;--bs-form-invalid-color:#dc3545;--bs-form-invalid-border-color:#dc3545}*,*:before,*:after{box-sizing:border-box}@media(prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}h3,h2,h1{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2;color:var(--bs-heading-color)}h1{font-size:calc(1.375rem + 1.5vw)}@media(min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media(min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media(min-width:1200px){h3{font-size:1.75rem}}p{margin-top:0;margin-bottom:1rem}ol{padding-left:2rem}ol{margin-top:0;margin-bottom:1rem}a{color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity, 1));text-decoration:underline}a:hover{--bs-link-color-rgb:var(--bs-link-hover-color-rgb)}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code{font-family:var(--bs-font-monospace);font-size:1em}code{font-size:.875em;color:var(--bs-code-color);word-wrap:break-word}:root{--bs-breakpoint-xs:0;--bs-breakpoint-sm:576px;--bs-breakpoint-md:768px;--bs-breakpoint-lg:992px;--bs-breakpoint-xl:1200px;--bs-breakpoint-xxl:1400px}:root{--bs-btn-close-filter: }:root{--bs-carousel-indicator-active-bg:#fff;--bs-carousel-caption-color:#fff;--bs-carousel-control-icon-filter: }html,body{height:auto!important;overflow:visible!important}body,h1,h2,h3{font-weight:300}a{color:#533f03;font-weight:700}a:hover{color:#533f03;cursor:pointer}</style><link rel="stylesheet" href="styles-DVEKYXWE.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-DVEKYXWE.css"></noscript></head>
+  <body>
+    <!--[if lt IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <jhi-app>
+      <div class="app-loading">
+        <div class="lds-pacman">
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="app-loading">
+        <div id="jhipster-error" style="display: none">
+          <!-- This content is for troubleshooting purpose and will be removed when app renders -->
+          <h1>An error has occurred :-(</h1>
+          <h2>Usual error causes</h2>
+          <ol>
+            <li>
+              You started the application from an IDE and you didn't run <code style="color: red">npm start</code> or
+              <code style="color: red">npm run webapp:build</code>.
+            </li>
+            <li>
+              You had a network error while running <code style="color: red">npm install</code>. If you are behind a corporate proxy, it is
+              likely that this error was caused by your proxy. Have a look at the JHipster error logs, you will probably have the cause of
+              the error.
+            </li>
+            <li>
+              You installed a Node.js version that doesn't work with JHipster: please use an LTS (long-term support) version, as it's the
+              only version we support.
+            </li>
+          </ol>
+          <h2>Building the client side code again</h2>
+          <p>If you want to go fast, run <code style="color: red">./npmw run app:start</code> to build and run everything.</p>
+          <p>If you want to have more control, so you can debug your issue more easily, you should follow the following steps:</p>
+          <ol>
+            <li>Install npm dependencies with the command <code style="color: red">npm install</code></li>
+            <li>
+              Build the client with the command <code style="color: red">npm run webapp:build</code> or
+              <code style="color: red">npm start</code>
+            </li>
+            <li>Start the server with <code style="color: red">./npmw run app:start</code> or using your IDE</li>
+          </ol>
+
+          <h2>Getting more help</h2>
+
+          <h3>If you have a question on how to use JHipster</h3>
+          <p>
+            Go to Stack Overflow with the
+            <a href="http://stackoverflow.com/tags/jhipster" target="_blank" rel="noopener noreferrer">"jhipster"</a> tag.
+          </p>
+
+          <h3>If you have a bug or a feature request</h3>
+          <p>
+            First read our
+            <a href="https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contributing guidelines</a>.
+          </p>
+          <p>
+            Then, fill a ticket on our
+            <a href="https://github.com/jhipster/generator-jhipster/issues/new/choose" target="_blank" rel="noopener noreferrer">bug tracker</a>, we'll be happy to resolve your issue!
+          </p>
+
+          <h3>If you want to chat with contributors and other users</h3>
+          <p>
+            Join our chat room on
+            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">Gitter.im</a>. Please note
+            that this is a public chat room, and that we expect you to respect other people and write in a correct English language!
+          </p>
+          <!-- end of troubleshooting content -->
+        </div>
+      </div>
+    </jhi-app>
+    <noscript>
+      <h1>You must enable JavaScript to view this page.</h1>
+    </noscript>
+    <script type="text/javascript">
+      // show an error message if the app loading takes more than 4 sec
+      window.onload = function () {
+        setTimeout(showError, 4000);
+      };
+      function showError() {
+        const errorElm = document.getElementById('jhipster-error');
+        if (errorElm?.style) {
+          errorElm.style.display = 'block';
+        }
+      }
+    </script>
+  <script src="polyfills-PZSJNBYU.js" type="module"></script><script src="main-AQOPFPQY.js" type="module"></script></body>
+</html>
