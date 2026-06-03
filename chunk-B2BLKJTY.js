@@ -150,7 +150,7 @@ import{p as P,r as O,t as g}from"./chunk-L7QYCLNK.js";import{a as B}from"./chunk
         `),n(),t(148,`
         `),e(149,"div",34),t(150,`
           `),e(151,"span",35),t(152,"Desde"),n(),t(153,`
-          `),e(154,"span",36),t(155,"13\u20AC"),e(156,"small"),t(157,"/h"),n()(),t(158,`
+          `),e(154,"span",36),t(155,"15\u20AC"),e(156,"small"),t(157,"/h"),n()(),t(158,`
         `),n(),t(159,`
       `),n(),t(160,`
     `),n(),t(161,`
